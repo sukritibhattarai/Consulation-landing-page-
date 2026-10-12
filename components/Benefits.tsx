@@ -22,7 +22,9 @@ export function Benefits() {
     <section className="bg-white py-20 sm:py-28" aria-labelledby="benefits-title">
       <div className="section-wrap">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 id="benefits-title" className="text-3xl font-extrabold tracking-[-0.04em] text-main-text sm:text-5xl">How You Benefit From This Consultation</h2>
+          <span className="section-kicker">What you gain</span>
+          <h2 id="benefits-title" className="mt-5 text-3xl font-extrabold tracking-[-0.04em] text-main-text sm:text-5xl">Clarity you can turn into action.</h2>
+          <p className="mt-5 text-lg leading-8 text-muted-text">Every recommendation is shaped around your business, audience and current resources.</p>
         </div>
         <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-6">
           {benefits.map((benefit, index) => (

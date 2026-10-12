@@ -8,7 +8,11 @@ export function Process() {
   return (
     <section className="border-y border-light-border bg-white py-20 text-main-text sm:py-28" aria-labelledby="process-title">
       <div className="section-wrap">
-        <div className="text-center"><h2 id="process-title" className="text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">Consultation Process</h2></div>
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="section-kicker">Simple from start to finish</span>
+          <h2 id="process-title" className="mt-5 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">Three steps to a clearer marketing direction.</h2>
+          <p className="mt-5 text-lg leading-8 text-muted-text">No long application. No complicated setup. Just the information we need to make the conversation useful.</p>
+        </div>
         <ol className="process-list relative mt-12 grid gap-5 lg:grid-cols-3">
           {steps.map((step, index) => (
             <li key={step.title} className="relative rounded-3xl border border-light-border bg-soft-lavender p-7 shadow-[0_16px_48px_rgba(76,29,149,0.06)] sm:p-8">

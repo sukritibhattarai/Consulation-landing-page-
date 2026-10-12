@@ -14,6 +14,7 @@
   --muted-dark: #d1c9dd;
   --light-border: #e9e1f2;
   --cyan-accent: #22d3ee;
+  --warm-accent: #ff8f7d;
   --whatsapp: #128c4b;
 }
 
@@ -32,6 +33,7 @@
   --color-muted-dark: var(--muted-dark);
   --color-light-border: var(--light-border);
   --color-cyan-accent: var(--cyan-accent);
+  --color-warm-accent: var(--warm-accent);
   --color-whatsapp: var(--whatsapp);
 }
 
@@ -44,7 +46,7 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: #fbfaff;
   color: var(--main-text);
   font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -62,9 +64,10 @@ button, input, textarea { font: inherit; }
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(circle at 50% 18%, rgba(147, 51, 234, 0.13), transparent 35%),
-    radial-gradient(circle at 88% 65%, rgba(34, 211, 238, 0.08), transparent 25%),
-    linear-gradient(180deg, #ffffff 0%, #f7f3ff 100%);
+    radial-gradient(circle at 18% 20%, rgba(216, 180, 254, 0.34), transparent 31%),
+    radial-gradient(circle at 88% 62%, rgba(34, 211, 238, 0.14), transparent 27%),
+    radial-gradient(circle at 65% 5%, rgba(255, 143, 125, 0.09), transparent 22%),
+    linear-gradient(180deg, #fff 0%, #f7f3ff 100%);
 }
 
 .hero-shell::before {
@@ -110,6 +113,28 @@ button, input, textarea { font: inherit; }
 
 .primary-button:active { transform: translateY(0); }
 
+.header-cta {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.95), rgba(147, 51, 234, 0.95));
+  padding-inline: 1rem;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.header-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
 .primary-button:focus-visible,
 .whatsapp-button:focus-visible,
 input:focus-visible,
@@ -142,7 +167,133 @@ textarea:focus-visible {
   border: 1px solid var(--light-border);
   border-radius: 1.5rem;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 16px 50px rgba(56, 25, 85, 0.06);
+  box-shadow: 0 18px 54px rgba(56, 25, 85, 0.07);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.soft-card:hover {
+  border-color: rgba(124, 58, 237, 0.24);
+  box-shadow: 0 24px 64px rgba(56, 25, 85, 0.11);
+}
+
+.hero-visual {
+  position: relative;
+  isolation: isolate;
+  min-height: 32rem;
+  display: grid;
+  place-items: center;
+}
+
+.hero-orbit {
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  filter: blur(2px);
+}
+
+.hero-orbit-one {
+  width: 22rem;
+  height: 22rem;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  background: radial-gradient(circle at 30% 30%, rgba(216, 180, 254, 0.65), rgba(124, 58, 237, 0.08) 55%, transparent 72%);
+}
+
+.hero-orbit-two {
+  width: 14rem;
+  height: 14rem;
+  transform: translate(42%, -52%);
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.22), transparent 68%);
+}
+
+.consultation-card {
+  width: min(100%, 30rem);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), transparent 42%),
+    linear-gradient(145deg, #120c20 0%, #22113a 58%, #3b1762 100%);
+  padding: 1.4rem;
+  box-shadow: 0 30px 90px rgba(43, 18, 68, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: rotate(1.2deg);
+}
+
+.session-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.055);
+  padding: 0.9rem 1rem;
+}
+
+.clarity-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(124, 58, 237, 0.38), transparent 28%),
+    radial-gradient(circle at 8% 85%, rgba(34, 211, 238, 0.13), transparent 25%),
+    #0d0a14;
+}
+
+.clarity-section::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  content: "";
+  mask-image: radial-gradient(circle at center, black, transparent 76%);
+}
+
+.clarity-section > * { position: relative; z-index: 1; }
+
+.section-kicker-dark {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.07);
+  color: #d8b4fe;
+}
+
+.clarity-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  align-items: start;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.055);
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.clarity-row:hover {
+  transform: translateX(4px);
+  border-color: rgba(216, 180, 254, 0.32);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.booking-section {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(34, 211, 238, 0.1), transparent 24%),
+    radial-gradient(circle at 88% 78%, rgba(147, 51, 234, 0.13), transparent 28%),
+    linear-gradient(180deg, #f7f3ff 0%, #fff 100%);
+}
+
+.form-card {
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 28px 90px rgba(71, 31, 105, 0.14), inset 0 1px 0 white;
+}
+
+.video-panel {
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 24px 70px rgba(71, 31, 105, 0.12);
+  backdrop-filter: blur(16px);
 }
 
 .process-list::before {
@@ -172,6 +323,10 @@ textarea:focus-visible {
 @media (max-width: 639px) {
   .section-wrap { width: min(100% - 1.5rem, 72rem); }
   .primary-button { width: 100%; }
+  .hero-visual { min-height: 29rem; }
+  .consultation-card { transform: none; }
+  .clarity-row { grid-template-columns: 2rem 1fr; }
+  .clarity-row svg { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

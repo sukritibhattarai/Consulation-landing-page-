@@ -92,16 +92,21 @@ export function CTAForm() {
   }
 
   return (
-    <section id="book" className="relative scroll-mt-4 bg-soft-lavender py-20 sm:py-28" aria-labelledby="book-title">
-      <div aria-hidden="true" className="absolute left-1/2 top-16 h-64 w-64 -translate-x-1/2 rounded-full bg-primary-violet/10 blur-3xl" />
+    <section id="book" className="booking-section relative scroll-mt-4 py-20 sm:py-28" aria-labelledby="book-title">
+      <div aria-hidden="true" className="absolute left-1/2 top-16 h-80 w-80 -translate-x-1/2 rounded-full bg-primary-violet/15 blur-3xl" />
       <div className="section-wrap relative">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="section-kicker">Book the Call</span>
-          <h2 id="book-title" className="mt-5 text-3xl font-extrabold tracking-[-0.04em] text-main-text sm:text-5xl">One-to-One Consultation</h2>
-          <p className="mt-4 text-lg font-semibold text-muted-text">Customized Strategy for Your Business</p>
+          <span className="section-kicker">Your next clear step</span>
+          <h2 id="book-title" className="mt-5 text-3xl font-extrabold tracking-[-0.04em] text-main-text sm:text-5xl">Let&apos;s find the growth opportunity you are missing.</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted-text">Share a few details so your free consultation can focus on the questions and opportunities that matter most to your business.</p>
         </div>
 
-        <form noValidate onSubmit={handleSubmit} className="soft-card mx-auto mt-12 max-w-3xl p-5 sm:p-9 lg:p-11">
+        <form noValidate onSubmit={handleSubmit} className="form-card mx-auto mt-12 max-w-3xl p-5 sm:p-9 lg:p-11">
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-2xl border border-primary-violet/10 bg-soft-lavender px-4 py-4 text-sm font-extrabold text-deep-purple">
+            <span>✓ Free 30-minute call</span>
+            <span>✓ Tailored guidance</span>
+            <span>✓ Practical next steps</span>
+          </div>
           <div className="grid gap-x-5 gap-y-6 md:grid-cols-2">
             {fields.map((field) => {
               const errorId = `${field.name}-error`;

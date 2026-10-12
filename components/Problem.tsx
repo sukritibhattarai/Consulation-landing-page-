@@ -11,8 +11,10 @@ export function Problem() {
   return (
     <section className="bg-soft-lavender py-20 sm:py-28" aria-labelledby="problem-title">
       <div className="section-wrap">
-        <div className="text-center">
-          <h2 id="problem-title" className="text-3xl font-extrabold tracking-[-0.035em] text-main-text sm:text-5xl">Sound familiar?</h2>
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="section-kicker">The real challenge</span>
+          <h2 id="problem-title" className="mt-5 text-3xl font-extrabold tracking-[-0.035em] text-main-text sm:text-5xl">You are doing the work—but growth still feels unpredictable.</h2>
+          <p className="mt-5 text-lg leading-8 text-muted-text">When marketing activities are disconnected, more effort often creates more noise instead of more customers.</p>
         </div>
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
           {problems.map((problem) => (
@@ -26,7 +28,7 @@ export function Problem() {
             </li>
           ))}
         </ul>
-        <p className="mx-auto mt-10 max-w-2xl text-center text-xl font-extrabold text-deep-purple sm:text-2xl">There is a simpler way to know what to fix first.</p>
+        <p className="mx-auto mt-10 max-w-2xl text-center text-xl font-extrabold text-deep-purple sm:text-2xl">The goal is not to do everything. It is to know what to fix first.</p>
       </div>
     </section>
   );

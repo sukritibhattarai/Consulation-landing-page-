@@ -50,15 +50,18 @@ export function ThankYou() {
         </ol>
 
         {vimeoEmbedUrl && (
-          <div className="mt-12">
-            <h2 className="text-2xl font-extrabold tracking-[-0.03em] text-main-text sm:text-3xl">
+          <div className="video-panel mt-12 p-4 sm:p-6">
+            <span className="section-kicker">Your welcome video</span>
+            <h2 className="mt-4 text-2xl font-extrabold tracking-[-0.03em] text-main-text sm:text-3xl">
               What Happens Next?
             </h2>
-            <div className="mt-6 overflow-hidden rounded-3xl border border-light-border bg-black shadow-2xl shadow-purple-950/20">
+            <p className="mx-auto mt-3 max-w-xl leading-7 text-muted-text">Watch this short video, then use the buttons below if you would like to continue the conversation on WhatsApp.</p>
+            <div className="mt-6 overflow-hidden rounded-[1.4rem] border border-white/10 bg-black shadow-2xl shadow-purple-950/20">
               <div className="aspect-video">
-                <iframe src={vimeoEmbedUrl} title="Sukriti Digital consultation next steps" className="h-full w-full" allow="fullscreen; picture-in-picture" allowFullScreen />
+                <iframe src={vimeoEmbedUrl} title="Sukriti Digital consultation next steps" className="h-full w-full" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen />
               </div>
             </div>
+            <p className="mt-3 text-xs font-semibold text-muted-text">Temporary Vimeo preview — your own welcome video can replace it anytime.</p>
           </div>
         )}
 
