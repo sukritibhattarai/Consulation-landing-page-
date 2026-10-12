@@ -47,6 +47,8 @@ export async function POST(request: Request) {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
+          Origin: "https://sukriti-digital-consultation.susanbakerv098.chatgpt.site",
+          Referer: "https://sukriti-digital-consultation.susanbakerv098.chatgpt.site/",
         },
         body: JSON.stringify({
           name: lead.fullName,
