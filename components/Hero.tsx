@@ -3,8 +3,7 @@ export function Hero() {
     <section className="relative px-4 pb-20 pt-16 text-center text-main-text sm:pb-28 sm:pt-24 lg:pb-32">
       <div className="reveal mx-auto max-w-5xl">
         <h1 className="text-[clamp(2.4rem,7.5vw,5.8rem)] font-extrabold leading-[0.99] tracking-[-0.055em]">
-          Get a <span className="gradient-text">Custom Digital Marketing Plan</span>{" "}
-          for Your Business. Free.
+          Turn Your Hard Work Into a <span className="gradient-text">Clear Digital Growth Plan.</span>
         </h1>
         <p className="mx-auto mt-7 max-w-3xl text-lg font-bold leading-8 text-main-text sm:text-2xl sm:leading-9">
           Stop guessing what to post or where to spend. Get clear, practical next steps shaped around your business.
