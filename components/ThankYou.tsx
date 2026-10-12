@@ -23,18 +23,18 @@ export function ThankYou() {
   }
 
   return (
-    <section className="relative px-4 pb-20 pt-14 text-white sm:pb-28 sm:pt-20">
+    <section className="relative px-4 pb-20 pt-14 text-main-text sm:pb-28 sm:pt-20">
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="text-[clamp(2.25rem,7vw,4.7rem)] font-extrabold leading-[1.04] tracking-[-0.05em]">
           Congratulations! You&apos;ve taken the <span className="gradient-text">first step.</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-dark sm:text-lg">You&apos;re one step closer to a marketing plan made for your business.</p>
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted-text sm:text-lg">You&apos;re one step closer to a marketing plan made for your business.</p>
 
         <ol className="mt-10 grid gap-4 text-left">
           {steps.map((step, index) => (
-            <li key={step} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.055] p-4 sm:p-5">
+            <li key={step} className="flex items-center gap-4 rounded-2xl border border-light-border bg-white p-4 shadow-[0_12px_36px_rgba(76,29,149,0.06)] sm:p-5">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-violet font-extrabold text-white">{index + 1}</span>
-              <span className="font-semibold leading-6 text-white">{step}</span>
+              <span className="font-semibold leading-6 text-main-text">{step}</span>
             </li>
           ))}
         </ol>

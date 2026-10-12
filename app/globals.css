@@ -62,9 +62,9 @@ button, input, textarea { font: inherit; }
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(circle at 50% 24%, rgba(147, 51, 234, 0.22), transparent 34%),
-    radial-gradient(circle at 88% 70%, rgba(34, 211, 238, 0.07), transparent 25%),
-    linear-gradient(180deg, #050507 0%, #0d0a14 100%);
+    radial-gradient(circle at 50% 18%, rgba(147, 51, 234, 0.13), transparent 35%),
+    radial-gradient(circle at 88% 65%, rgba(34, 211, 238, 0.08), transparent 25%),
+    linear-gradient(180deg, #ffffff 0%, #f7f3ff 100%);
 }
 
 .hero-shell::before {
@@ -72,16 +72,16 @@ button, input, textarea { font: inherit; }
   inset: 0;
   z-index: -1;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(91, 33, 182, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 33, 182, 0.035) 1px, transparent 1px);
   background-size: 48px 48px;
   content: "";
   mask-image: linear-gradient(to bottom, black, transparent 90%);
 }
 
 .gradient-text {
-  color: #d8b4fe;
-  background: linear-gradient(135deg, #8b5cf6 0%, #d8b4fe 55%, #f0ddff 100%);
+  color: #6d28d9;
+  background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 52%, #9333ea 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
