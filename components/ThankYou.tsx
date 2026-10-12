@@ -3,7 +3,7 @@ import { VIMEO_URL, WHATSAPP_NUMBER } from "@/lib/config";
 const steps = [
   "Watch the short video below.",
   "Message us on WhatsApp to ask about your next steps.",
-  "Join your free 1-hour consultation and get your custom plan in PDF format.",
+  "Join your free 30-minute consultation and get your custom plan in PDF format.",
 ];
 
 function getVimeoEmbedUrl(url: string) {

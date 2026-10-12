@@ -1,6 +1,6 @@
 const steps = [
   { title: "Fill out the form", description: "Tell us about your business and what you’re struggling with." },
-  { title: "Join the one-to-one call", description: "We spend 1 hour on your business and find what’s not working." },
+  { title: "Join the one-to-one call", description: "We spend 30 minutes on your business and find what’s not working." },
   { title: "Get your custom plan", description: "You receive a customised marketing plan in PDF format to start using right away." },
 ];
 

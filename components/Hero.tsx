@@ -6,8 +6,8 @@ export function Hero() {
           Get a <span className="gradient-text">Custom Digital Marketing Plan</span>{" "}
           for Your Business. Free.
         </h1>
-        <p className="mx-auto mt-7 max-w-3xl text-base font-medium leading-7 text-white sm:text-lg sm:leading-8">
-          One 1-hour call with me. You leave with a plan in PDF format that you can start using right away. Yours to keep, even if we never work together.
+        <p className="mx-auto mt-7 max-w-3xl text-lg font-bold leading-8 text-white sm:text-2xl sm:leading-9">
+          Struggling to get customers online? Get a free 30-minute digital marketing consultation.
         </p>
         <div className="mx-auto mt-6 max-w-2xl space-y-1 text-sm leading-6 text-muted-dark sm:text-base sm:leading-7">
           <p>This is a free one-to-one consultation for small and medium business owners.</p>

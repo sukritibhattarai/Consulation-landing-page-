@@ -10,11 +10,11 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sukriti-digital-consultation.susanbakerv098.chatgpt.site"),
-  title: "Free 1-Hour AI Marketing Consultation | Sukriti Digital",
+  title: "Free 30-Minute Digital Marketing Consultation | Sukriti Digital",
   description:
     "Book a free one-to-one consultation for your business and get a custom digital marketing plan in PDF format.",
   openGraph: {
-    title: "Free 1-Hour AI Marketing Consultation | Sukriti Digital",
+    title: "Free 30-Minute Digital Marketing Consultation | Sukriti Digital",
     description:
       "Book a free one-to-one consultation for your business and get a custom digital marketing plan in PDF format.",
     type: "website",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Free 1-Hour AI Marketing Consultation | Sukriti Digital",
+    title: "Free 30-Minute Digital Marketing Consultation | Sukriti Digital",
     description:
       "Book a free one-to-one consultation for your business and get a custom digital marketing plan in PDF format.",
   },
