@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { type LeadData, submitLead } from "@/lib/submitLead";
 
@@ -55,7 +54,6 @@ const fields: Array<{
 ];
 
 export function CTAForm() {
-  const router = useRouter();
   const [data, setData] = useState(initialData);
   const [errors, setErrors] = useState<Errors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -86,7 +84,7 @@ export function CTAForm() {
     setIsSubmitting(true);
     try {
       await submitLead(data);
-      router.push("/thank-you");
+      window.location.assign("/thank-you");
     } catch {
       setErrors({ form: "Something went wrong. Please try again." });
       setIsSubmitting(false);
