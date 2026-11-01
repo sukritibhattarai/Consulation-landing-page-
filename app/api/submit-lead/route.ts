@@ -54,23 +54,23 @@ export async function POST(request: Request) {
   // These field names come from Sukriti's Flodesk form embed. Submitting to
   // this form adds the contact to the form's connected segment, which lets the
   // active Flodesk workflow start without changing the site's existing layout.
-  const flodeskData = new URLSearchParams({
+  const flodeskData = {
     email: lead.email.trim(),
     firstName,
     "fields.businessName": lead.businessName.trim(),
     "fields.websiteOrFacebookLink": lead.website.trim(),
     "fields.anythingYouWantToSay": notes,
     confirm_email_address: "",
-  });
+  };
 
   try {
     const response = await fetch(FLODESK_FORM_URL, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        "Content-Type": "application/json;charset=UTF-8",
         Accept: "application/json, text/plain, */*",
       },
-      body: flodeskData.toString(),
+      body: JSON.stringify(flodeskData),
       redirect: "follow",
     });
 
