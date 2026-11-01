@@ -1,5 +1,8 @@
 import type { LeadData } from "@/lib/submitLead";
 
+const FLODESK_FORM_URL =
+  "https://form.flodesk.com/forms/6ae777c21311bb2571190649/submit";
+
 const requiredFields: Array<keyof LeadData> = [
   "fullName",
   "email",
@@ -7,23 +10,22 @@ const requiredFields: Array<keyof LeadData> = [
   "businessName",
 ];
 
+const allFields: Array<keyof LeadData> = [
+  ...requiredFields,
+  "website",
+  "message",
+];
+
 function isLeadData(value: unknown): value is LeadData {
   if (!value || typeof value !== "object") return false;
   const data = value as Record<string, unknown>;
-  return requiredFields.every(
-    (field) => typeof data[field] === "string" && data[field].trim().length > 0,
+  return (
+    allFields.every((field) => typeof data[field] === "string") &&
+    requiredFields.every((field) => (data[field] as string).trim().length > 0)
   );
 }
 
 export async function POST(request: Request) {
-  const recipient = process.env.LEAD_RECIPIENT_EMAIL?.trim();
-  if (!recipient) {
-    return Response.json(
-      { error: "Form delivery is not configured." },
-      { status: 503 },
-    );
-  }
-
   let data: unknown;
   try {
     data = await request.json();
@@ -39,40 +41,42 @@ export async function POST(request: Request) {
   }
 
   const lead = data as LeadData;
+  const fullName = lead.fullName.trim();
+  const firstName = fullName.split(/\s+/)[0];
+  const notes = [
+    `Full name: ${fullName}`,
+    `WhatsApp: ${lead.whatsapp.trim()}`,
+    lead.message.trim() ? `Message: ${lead.message.trim()}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+
+  // These field names come from Sukriti's Flodesk form embed. Submitting to
+  // this form adds the contact to the form's connected segment, which lets the
+  // active Flodesk workflow start without changing the site's existing layout.
+  const flodeskData = new URLSearchParams({
+    email: lead.email.trim(),
+    firstName,
+    "fields.businessName": lead.businessName.trim(),
+    "fields.websiteOrFacebookLink": lead.website.trim(),
+    "fields.anythingYouWantToSay": notes,
+    confirm_email_address: "",
+  });
+
   try {
-    const response = await fetch(
-      `https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Origin: "https://sukriti-digital-consultation.susanbakerv098.chatgpt.site",
-          Referer: "https://sukriti-digital-consultation.susanbakerv098.chatgpt.site/",
-        },
-        body: JSON.stringify({
-          name: lead.fullName,
-          email: lead.email,
-          "WhatsApp Number": lead.whatsapp,
-          "Business Name": lead.businessName,
-          "Website or Facebook URL": lead.website || "Not provided",
-          Message: lead.message || "Not provided",
-          _subject: "New Free Consultation Booking — Sukriti Digital",
-          _template: "table",
-          _captcha: "false",
-          _honey: "",
-          _url: "https://sukriti-digital-consultation.susanbakerv098.chatgpt.site",
-        }),
+    const response = await fetch(FLODESK_FORM_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        Accept: "application/json, text/plain, */*",
       },
-    );
+      body: flodeskData.toString(),
+      redirect: "follow",
+    });
 
-    const result = (await response.json().catch(() => null)) as
-      | { success?: string | boolean }
-      | null;
-
-    if (!response.ok || result?.success === "false" || result?.success === false) {
+    if (!response.ok) {
       return Response.json(
-        { error: "Email delivery failed. Please try again." },
+        { error: "Flodesk could not accept the form. Please try again." },
         { status: 502 },
       );
     }
@@ -80,7 +84,7 @@ export async function POST(request: Request) {
     return Response.json({ ok: true });
   } catch {
     return Response.json(
-      { error: "Email delivery is temporarily unavailable." },
+      { error: "Flodesk is temporarily unavailable. Please try again." },
       { status: 502 },
     );
   }
