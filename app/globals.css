@@ -288,6 +288,31 @@ textarea:focus-visible {
   box-shadow: 0 28px 90px rgba(71, 31, 105, 0.14), inset 0 1px 0 white;
 }
 
+/* Flodesk's official handler uses these classes for field errors and its
+   verification challenge. The existing visual design remains unchanged. */
+.fd-form-content { position: relative; }
+.fd-form-error { display: none; }
+.fd-has-error .fd-form-error { display: block; }
+.fd-form-group.fd-has-error .fd-form-control { border-color: #b91c1c; }
+.fd-form-feedback {
+  margin-top: 0.5rem;
+  color: #b91c1c;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.fd-has-captcha .fd-form-content > *:not(.fd-form-captcha) {
+  visibility: hidden;
+  opacity: 0;
+}
+.fd-form-captcha {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  min-height: 15rem;
+  border-radius: 1.5rem;
+  background: #fff;
+}
+
 .video-panel {
   border: 1px solid rgba(124, 58, 237, 0.14);
   border-radius: 2rem;
