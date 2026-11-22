@@ -1,4 +1,5 @@
 import {
+  CALENDLY_URL,
   VIMEO_URL,
   WHATSAPP_GROUP_URL,
   WHATSAPP_NUMBER,
@@ -6,8 +7,8 @@ import {
 
 const steps = [
   "Watch the short video below.",
-  "Message us on WhatsApp to ask about your next steps.",
-  "Join your free 30-minute consultation and get your custom plan in PDF format.",
+  "Choose a convenient time for your free consultation.",
+  "Message us on WhatsApp if you need help before the call.",
 ];
 
 function getVimeoEmbedUrl(url: string) {
@@ -19,6 +20,9 @@ function getVimeoEmbedUrl(url: string) {
 export function ThankYou() {
   const vimeoEmbedUrl = getVimeoEmbedUrl(VIMEO_URL);
   const whatsappNumber = WHATSAPP_NUMBER.replace(/\D/g, "");
+  const calendlyUrl = /^https:\/\/calendly\.com\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+/.test(CALENDLY_URL)
+    ? CALENDLY_URL
+    : "";
   const whatsappGroupUrl = /^https:\/\/chat\.whatsapp\.com\/[A-Za-z0-9]+/.test(
     WHATSAPP_GROUP_URL,
   )
@@ -30,6 +34,7 @@ export function ThankYou() {
     if (!vimeoEmbedUrl) console.warn("VIMEO_URL is empty or invalid; the video is hidden.");
     if (!whatsappNumber) console.warn("WHATSAPP_NUMBER is empty; the WhatsApp button is hidden.");
     if (!whatsappGroupUrl) console.warn("WHATSAPP_GROUP_URL is empty or invalid; the group button is hidden.");
+    if (!calendlyUrl) console.warn("CALENDLY_URL is empty or invalid; the booking button is hidden.");
   }
 
   return (
@@ -65,8 +70,18 @@ export function ThankYou() {
           </div>
         )}
 
-        {(whatsappNumber || whatsappGroupUrl) && (
+        {(calendlyUrl || whatsappNumber || whatsappGroupUrl) && (
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            {calendlyUrl && (
+              <a
+                href={calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="primary-button inline-flex min-h-14 w-full items-center justify-center px-7 font-extrabold sm:w-auto"
+              >
+                Book Your Consultation Time
+              </a>
+            )}
             {whatsappNumber && (
               <a
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`}
