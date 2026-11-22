@@ -102,10 +102,14 @@ export function CTAForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const result = await response.json().catch(() => ({}));
+      const result = (await response.json().catch(() => ({}))) as { error?: unknown };
 
       if (!response.ok) {
-        throw new Error(result.error || "We could not save your details. Please try again.");
+        throw new Error(
+          typeof result.error === "string"
+            ? result.error
+            : "We could not save your details. Please try again.",
+        );
       }
 
       router.push("/thank-you");
